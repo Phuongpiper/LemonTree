@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ORIHIRO OFFICIAL STORE | ADMIN</title>
+  <div th:insert="~{admin/layout :: css}"></div>
+</head>
+
+<body ng-app="myApp" 
+  class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+  <div class="wrapper">
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__wobble" th:src="@{/Admin/dist/img/AdminLTELogo.png}" alt="AdminLTELogo" height="60"
+        width="60" />
+    </div>
+
+    <!-- Navbar -->
+    <div th:insert="~{admin/layout :: nav}"></div>
+
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    
+    <ng-view></ng-view>
+   
+
+  <!-- REQUIRED SCRIPTS -->
+  <!-- jQuery -->
+  <div th:insert="~{admin/layout :: js}"></div>
+
+  <script>
+    $(function () {
+      $("#example1")
+        .DataTable({
+          responsive: true,
+          lengthChange: false,
+          autoWidth: false,
+          buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        })
+        .buttons()
+        .container()
+        .appendTo("#example1_wrapper .col-md-6:eq(0)");
+    });
+  </script>
+  
+</body>
+
+</html>

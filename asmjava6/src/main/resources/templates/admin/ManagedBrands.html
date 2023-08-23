@@ -1,0 +1,329 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+
+
+  <!-- Sidebar -->
+  <div class="sidebar" style="margin-top: 0px; height: 100%;">
+    <!-- Sidebar user panel (optional) -->
+    <div th:insert="~{admin/layout :: menu}"></div>
+
+
+    <!-- SidebarSearch Form -->
+
+    <div style=" text-align: center;">
+      <a href="?lang=vi">
+        <button class="flag-button btn btn-primary" type="submit" name="lang" value="vi">
+          <span class="flag-icon flag-icon-vn"></span>  VN
+        </button>
+      </a>
+      <a href="?lang=en">
+        <button class="flag-button btn btn-primary" type="submit" name="lang" value="en">
+          <span class="flag-icon flag-icon-gb"></span>  EN
+        </button>
+      </a>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item menu-open">
+          <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              <span th:text="#{menu.dashboard}"></span>
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#!/" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.products}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/account" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.accounts}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/discount" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.discounts}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/categories" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.product_categories}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/distributor" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.distributors}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/brands" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.brands}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/orders" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.orders}"></span></p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item menu-open">
+          <div class="nav-link ">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+              <span th:text="#{menu.reports}"></span>
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </div>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#!/Revenue" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.revenue}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/ReportProduct" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.products_report}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/ReportFavoriteProducts" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.favorite_products_report}"></span></p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <br>
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+
+          <a href="/client/logout" class="dropdown-item logout-button">Đăng xuất</a>
+
+        </div>
+        <style>
+          .logout-button {
+            width: 100%;
+            height: 40px;
+            background-color: red;
+            text-align: center;
+            border: 1px solid black;
+            color: white;
+            /* Thay đổi màu chữ */
+            text-decoration: none;
+            /* Loại bỏ gạch chân */
+            padding: 10px;
+            /* Khoảng cách nội dung và biên của liên kết */
+            display: block;
+            /* Hiển thị dạng block để chiếm toàn bộ chiều ngang */
+            transition: background-color 0.3s;
+            /* Hiệu ứng chuyển đổi màu nền */
+          }
+
+          .logout-button:hover {
+            background-color: white;
+            color: black !important;
+            /* Màu nền khi hover */
+          }
+        </style>
+      </div>
+    </nav>
+
+
+
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" ng-controller="brand-ctrl">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Nhãn hàng</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+
+            <li class="breadcrumb-item active">Nhãn hàng</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container mt-4">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" role="tab"
+            aria-controls="home" aria-selected="true">Danh sách</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" role="tab"
+            aria-controls="profile" aria-selected="false">Cập nhật</button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <table id="example1" class="table table-bordered table-striped">
+            <style>
+              div.dataTables_wrapper div.dataTables_filter label {
+                display: none;
+              }
+
+              div.dataTables_wrapper div.dataTables_filter input {
+                display: none;
+              }
+
+              .pagination {
+                display: none;
+              }
+
+              .dataTables_empty {
+                display: none;
+              }
+
+              /* Hiển thị các thẻ div khi có lỗi */
+            </style>
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên nhãn hàng</th>
+                <th>Người chịu trách nhiệm</th>
+                <th>Nhuồn gốc</th>
+                <th>Tùy chỉnh</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in pager.itemsbr">
+                <td>{{ $index + 1 }}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.responsibleName}}</td>
+                <td>{{item.origin}}</td>
+                <td><a class="fas fa-trash-alt" ng-click="deletebr(item)"></a>
+                  <a class="fas fa-edit" ng-click="editbr(item)"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="panel-footer text-center">
+            <button ng-click="pager.first()" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-up"></i>
+            </button>
+            <button ng-click="pager.prev()" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-left"></i>
+            </button>
+            <button class="btn btn-success">{{pager.page +1}} of {{pager.count}}</button>
+            <button ng-click="pager.next()" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-right"></i>
+            </button>
+            <button ng-click="pager.last()" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-down"></i>
+            </button>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <form name="myForm">
+            <div class="error-message ">
+              {{ myForm.name.$valid | json }}
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">ID</label>
+                <input type="text" ng-model="formbr.id" readonly class="form-control" id="exampleInputEmail1"
+                  placeholder="ID" />
+                <div ng-show="myForm.id.$error.required && myForm.id.$touched">ID is required</div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Tên nhãn hàng</label>
+                <input type="text" ng-model="formbr.name" class="form-control" id="exampleInputEmail1"
+                  placeholder="tên nhà phân phối" />
+                <div ng-show="hassError" style="color: red;">{{message1}}</div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Người chịu trách nhiệm</label>
+                <input type="text" ng-model="formbr.responsibleName" class="form-control" id="exampleInputEmail1"
+                  placeholder="Người chịu trách nhiệm" />
+                <div ng-show="hassError" style="color: red;">{{message2}}</div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nguồn gốc</label>
+                <input type="text" ng-model="formbr.origin" class="form-control" id="exampleInputEmail1"
+                  placeholder="Nguồn gốc" />
+                <div ng-show="hassError" style="color: red;">{{message3}}</div>
+              </div>
+            </div>
+            <!-- /.card-body -->
+            <!-- /.card-body -->
+            <div class="panel-footer text-center">
+              <button ng-click="createbr()" class="btn btn-primary" ng-disabled="lockbtnAdd">
+                <i class="fas fa-plus"></i>
+                lưu
+              </button>
+              <button ng-click="updatebr()" class="btn btn-success" ng-disabled="lockbtnUpdate">
+                <i class="fas fa-save"></i>
+                cập nhật
+              </button>
+              <button ng-click="deletebr(formbr)" class="btn btn-danger" ng-disabled="lockbtnDelete">
+                <i class="fas fa-trash"></i>
+                xóa
+              </button>
+              <button ng-click="resetbr()" class="btn btn-info">
+                <i class="fas fa-redo-alt"></i>
+                làm mới
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- /.card-body -->
+</div>
+</section>
+
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">DataTable with default features</h3>
+    </div>
+    <!-- /.card-header -->
+
+    <!-- /.card-body -->
+  </div>
+</aside>
+<!-- /.control-sidebar -->
+
+<!-- Main Footer -->
+
+</div>
+<!-- ./wrapper -->

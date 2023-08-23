@@ -1,0 +1,423 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <!-- Sidebar -->
+  <div class="sidebar" style="margin-top: 0px; height: 100%;">
+    <!-- Sidebar user panel (optional) -->
+    <div th:insert="~{admin/layout :: menu}"></div>
+    <!-- SidebarSearch Form -->
+    <div style=" text-align: center;">
+      <a href="?lang=vi">
+        <button class="flag-button btn btn-primary" type="submit" name="lang" value="vi">
+          <span class="flag-icon flag-icon-vn"></span> VN
+        </button>
+      </a>
+      <a href="?lang=en">
+        <button class="flag-button btn btn-primary" type="submit" name="lang" value="en">
+          <span class="flag-icon flag-icon-gb"></span> EN
+        </button>
+      </a>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item menu-open">
+          <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              <span th:text="#{menu.dashboard}"></span>
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#!/" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.products}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/account" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.accounts}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/discount" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.discounts}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/categories" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.product_categories}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/distributor" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.distributors}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/brands" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.brands}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/orders" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.orders}"></span></p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item menu-open">
+          <div class="nav-link ">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+              <span th:text="#{menu.reports}"></span>
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </div>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#!/Revenue" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.revenue}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/ReportProduct" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.products_report}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/ReportFavoriteProducts" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.favorite_products_report}"></span></p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <br>
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+
+          <a href="/client/logout" class="dropdown-item logout-button">Đăng xuất</a>
+
+        </div>
+        <style>
+          .logout-button {
+            width: 100%;
+            height: 40px;
+            background-color: red;
+            text-align: center;
+            border: 1px solid black;
+            color: white;
+            /* Thay đổi màu chữ */
+            text-decoration: none;
+            /* Loại bỏ gạch chân */
+            padding: 10px;
+            /* Khoảng cách nội dung và biên của liên kết */
+            display: block;
+            /* Hiển thị dạng block để chiếm toàn bộ chiều ngang */
+            transition: background-color 0.3s;
+            /* Hiệu ứng chuyển đổi màu nền */
+          }
+
+          .logout-button:hover {
+            background-color: white;
+            color: black !important;
+            /* Màu nền khi hover */
+          }
+        </style>
+      </div>
+    </nav>
+
+
+
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" ng-controller="myCtrl2">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Tài khoản</h1>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item active">Tài khoản</li>
+          </ol>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container mt-4">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" role="tab"
+            aria-controls="home" aria-selected="true">Danh sách</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="homeBlock-tab" data-toggle="tab" data-target="#homeBlock" role="tab"
+            aria-controls="homeBlock" aria-selected="false">Danh sách khóa</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" role="tab"
+            aria-controls="profile" aria-selected="false">Cập nhật</button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="ml-auto" style="margin-top: 15px; padding-right: 15px">
+            <div class="form-group">
+              <input type="text" class="form-control" ng-model="searchKeyword" placeholder="Tìm kiếm..." />
+            </div>
+          </div>
+          <table id="example1" class="table table-bordered table-striped">
+            <style>
+              div.dataTables_wrapper div.dataTables_filter label {
+                display: none;
+              }
+
+              div.dataTables_wrapper div.dataTables_filter input {
+                display: none;
+              }
+
+              .dataTables_empty {
+                display: none;
+              }
+            </style>
+            <thead>
+              <tr>
+                <th>Họ tên</th>
+                <th>Tài khoản</th>
+                <th>Email</th>
+                <th>Chức vụ</th>
+                <th>Tùy chỉnh</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="user in getCurrentPageUsers()" ng-if="user.active">
+                <td>{{ user.fullName }}</td>
+                <td>{{ user.userName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.admin ? 'Admin' : 'User' }}</td>
+                <td>
+                  <a class="fa fa-lock" ng-click="editRemove(user.id)"></a>
+                  <a class="fas fa-edit" ng-click="edit(user.id)"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="panel-footer text-center">
+            <button ng-click="setPage(1)" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-up"></i>
+            </button>
+            <button ng-click="setPage(currentPage - 1)" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-left"></i>
+            </button>
+            <button class="btn btn-success">{{currentPage }} of {{totalPages()}}</button>
+            <button ng-click="setPage(currentPage + 1)" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-right"></i>
+            </button>
+            <button ng-click="setPage(totalPages())" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-down"></i>
+            </button>
+          </div>
+          <form>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Họ và tên</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nhập họ tên"
+                  ng-model="userLogin.fullName" />
+                <div ng-show="formErrors.fullName" class="error-message">{{ formErrors.fullName }}</div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" readonly id="exampleInputEmail1" placeholder="Nhập email"
+                  ng-model="userLogin.email" />
+                <div ng-show="formErrors.email" class="error-message">{{ formErrors.email }}</div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" class="form-control" readonly id="exampleInputEmail1" placeholder="Nhập username"
+                  ng-model="userLogin.userName" />
+                <div ng-show="formErrors.userName" class="error-message">{{ formErrors.userName }}</div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <div class="input-group">
+                  <input ng-if="!showPassword" type="password" class="form-control" id="exampleInputPassword1"
+                    placeholder="Password" ng-model="userLogin.password" />
+                  <input ng-if="showPassword" type="text" class="form-control" id="exampleInputPassword1"
+                    placeholder="Password" ng-model="userLogin.password" />
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" ng-click="showPassword = !showPassword">
+                      <i class="fa" ng-class="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
+                    </button>
+                  </div>
+                </div>
+                <div ng-show="formErrors.password" class="error-message">{{ formErrors.password }}</div>
+              </div>
+              <div class="form-group">
+                <input type="hidden" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                  ng-model="form.admin" />
+              </div>
+            </div>
+          </form>
+          <div class="panel-footer text-center">
+            <button ng-click="updateInLog()" class="btn btn-success">
+              <i class="fas fa-save"></i>
+              cập nhật
+            </button>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="homeBlock" role="tabpanel" aria-labelledby="homeBlock-tab">
+          <div class="ml-auto" style="margin-top: 15px; padding-right: 15px">
+            <div class="form-group">
+              <input type="text" class="form-control" ng-model="searchKeyword" placeholder="Tìm kiếm..." />
+            </div>
+          </div>
+          <table id="example1" class="table table-bordered table-striped">
+            <style>
+              div.dataTables_wrapper div.dataTables_filter label {
+                display: none;
+              }
+
+              div.dataTables_wrapper div.dataTables_filter input {
+                display: none;
+              }
+
+              .dataTables_empty {
+                display: none;
+              }
+            </style>
+            <thead>
+              <tr>
+                <th>Họ tên</th>
+                <th>Tài khoản</th>
+                <th>Email</th>
+                <th>Chức vụ</th>
+                <th>Tùy chỉnh</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="user in getCurrentPageUsersBlock()">
+                <td>{{ user.fullName }}</td>
+                <td>{{ user.userName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.admin ? 'Admin' : 'User' }}</td>
+                <td>
+                  <a class="fa fa-unlock" ng-click="editRemove(user.id)"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <form>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Họ và tên</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nhập họ tên"
+                  ng-model="formInput.fullName" />
+                <div ng-show="formErrors.fullName" class="error-message">{{ formErrors.fullName }}</div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email"
+                  ng-model="formInput.email" />
+                <div ng-show="formErrors.email" class="error-message">{{ formErrors.email }}</div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nhập username"
+                  ng-model="formInput.userName" />
+                <div ng-show="formErrors.userName" class="error-message">{{ formErrors.userName }}</div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <div class="input-group">
+                  <input ng-if="!showPassword" type="password" class="form-control" id="exampleInputPassword1"
+                    placeholder="Password" ng-model="formInput.password" />
+                  <input ng-if="showPassword" type="text" class="form-control" id="exampleInputPassword1"
+                    placeholder="Password" ng-model="formInput.password" />
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" ng-click="showPassword = !showPassword">
+                      <i class="fa" ng-class="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
+                    </button>
+                  </div>
+                </div>
+                <div ng-show="formErrors.password" class="error-message">{{ formErrors.password }}</div>
+              </div>
+
+              <div class="form-group">
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio"
+                    ng-model="formInput.admin" ng-value="true" />
+                  <label for="customRadio1" class="custom-control-label">Admin</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio"
+                    ng-model="formInput.admin" ng-value="false" />
+                  <label for="customRadio2" class="custom-control-label">User</label>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="panel-footer text-center">
+            <button ng-click="create()" class="btn btn-primary" ng-disabled="isSubcreateing" id="createButton">
+              <i class="fas fa-plus"></i> lưu
+            </button>
+            <button ng-click="update()" class="btn btn-success" ng-disabled="isSubediting" id="updateButton">
+              <i class="fas fa-save"></i> cập nhật
+            </button>
+            <button ng-click="reset()" class="btn btn-info" ng-disabled="isSubreseting" id="resetButton">
+              <i class="fas fa-redo-alt"></i> làm mới
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+
+<!-- Main Footer -->
+</div>
+<!-- ./wrapper -->

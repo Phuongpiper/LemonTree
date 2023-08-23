@@ -1,0 +1,250 @@
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  
+
+  <!-- Sidebar -->
+  <div class="sidebar" style="margin-top: 0px; height: 100%;">
+    <!-- Sidebar user panel (optional) -->
+    <div th:insert="~{admin/layout :: menu}"></div>
+
+
+    <!-- SidebarSearch Form -->
+    <div style=" text-align: center;">
+      <a href="?lang=vi">
+        <button class="flag-button btn btn-primary" type="submit" name="lang" value="vi">
+          <span class="flag-icon flag-icon-vn"></span>  VN
+        </button>
+      </a>
+      <a href="?lang=en">
+        <button class="flag-button btn btn-primary" type="submit" name="lang" value="en">
+          <span class="flag-icon flag-icon-gb"></span>  EN
+        </button>
+      </a>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item menu-open">
+          <a href="#" class="nav-link ">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              <span th:text="#{menu.dashboard}"></span>
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#!/" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.products}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/account" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.accounts}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/discount" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.discounts}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/categories" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.product_categories}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/distributor" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.distributors}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/brands" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.brands}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/orders" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.orders}"></span></p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item menu-open">
+          <div class="nav-link active">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+              <span th:text="#{menu.reports}"></span>
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </div>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#!/Revenue" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.revenue}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/ReportProduct" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.products_report}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/ReportFavoriteProducts" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.favorite_products_report}"></span></p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <br>
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+
+          <a href="/client/logout" class="dropdown-item logout-button">Đăng xuất</a>
+
+        </div>
+        <style>
+          .logout-button {
+            width: 100%;
+            height: 40px;
+            background-color: red;
+            text-align: center;
+            border: 1px solid black;
+            color: white;
+            /* Thay đổi màu chữ */
+            text-decoration: none;
+            /* Loại bỏ gạch chân */
+            padding: 10px;
+            /* Khoảng cách nội dung và biên của liên kết */
+            display: block;
+            /* Hiển thị dạng block để chiếm toàn bộ chiều ngang */
+            transition: background-color 0.3s;
+            /* Hiệu ứng chuyển đổi màu nền */
+          }
+
+          .logout-button:hover {
+            background-color: white;
+            color: black !important;
+            /* Màu nền khi hover */
+          }
+        </style>
+      </div>
+    </nav>
+
+
+
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Sản phẩm</h1>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item ">Sản phẩm</li>
+              </ol>
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <section class="content">
+        <table id="example1" class="table table-bordered table-striped">
+            <style>
+                div.dataTables_wrapper div.dataTables_filter label {
+                    display: none;
+                }
+    
+                div.dataTables_wrapper div.dataTables_filter input {
+                    display: none;
+                }
+    
+                .pagination {
+                    display: none;
+                }
+    
+                .dataTables_empty {
+                    display: none;
+                }
+    
+                /* Hiển thị các thẻ div khi có lỗi */
+            </style>
+            <thead>
+                <tr>
+                    <th>Tên thuốc</th>
+                    <th>Lượt thích</th>
+                    <th>Người dùng đã like</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items">
+                    <td>{{ item.productName }}</td>
+                    <td>{{ item.likeCount }}</td>
+                    <td>
+                        <button ng-click="getUserFavorite(item.productName)" class="btn btn-sm btn-info">
+                            <i class="fas fa-eye"></i> Xem
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Danh sách người dùng đã like -->
+        <div ng-show="userFavoriteList.length > 0">
+            <h4>Người dùng đã like: </h4>
+            <ul>
+                <li ng-repeat="user in userFavoriteList">{{ user.userName }}</li>
+            </ul>
+        </div>
+    </section>    
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">DataTable with default features</h3>
+        </div>
+        <!-- /.card-header -->
+
+        <!-- /.card-body -->
+      </div>
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+  </div>
+  <!-- ./wrapper -->
+
+ 

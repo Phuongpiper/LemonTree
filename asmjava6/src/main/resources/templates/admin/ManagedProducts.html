@@ -1,0 +1,400 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  
+
+  <!-- Sidebar -->
+  <div class="sidebar" style="margin-top: 0px; height: 100%;">
+    <!-- Sidebar user panel (optional) -->
+    <div th:insert="~{admin/layout :: menu}"></div>
+
+
+    <!-- SidebarSearch Form -->
+    <div style=" text-align: center;">
+      <a href="?lang=vi">
+        <button class="flag-button btn btn-primary" type="submit" name="lang" value="vi">
+          <span class="flag-icon flag-icon-vn"></span>  VN
+        </button>
+      </a>
+      <a href="?lang=en">
+        <button class="flag-button btn btn-primary" type="submit" name="lang" value="en">
+          <span class="flag-icon flag-icon-gb"></span>  EN
+        </button>
+      </a>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item menu-open">
+          <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              <span th:text="#{menu.dashboard}"></span>
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#!/" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.products}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/account" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.accounts}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/discount" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.discounts}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/categories" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.product_categories}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/distributor" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.distributors}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/brands" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.brands}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/orders" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.orders}"></span></p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item menu-open">
+          <div class="nav-link ">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+              <span th:text="#{menu.reports}"></span>
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </div>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#!/Revenue" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.revenue}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/ReportProduct" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.products_report}"></span></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#!/ReportFavoriteProducts" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p><span th:text="#{menu.favorite_products_report}"></span></p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <br>
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+
+          <a href="/client/logout" class="dropdown-item logout-button">Đăng xuất</a>
+
+        </div>
+        <style>
+          .logout-button {
+            width: 100%;
+            height: 40px;
+            background-color: red;
+            text-align: center;
+            border: 1px solid black;
+            color: white;
+            /* Thay đổi màu chữ */
+            text-decoration: none;
+            /* Loại bỏ gạch chân */
+            padding: 10px;
+            /* Khoảng cách nội dung và biên của liên kết */
+            display: block;
+            /* Hiển thị dạng block để chiếm toàn bộ chiều ngang */
+            transition: background-color 0.3s;
+            /* Hiệu ứng chuyển đổi màu nền */
+          }
+
+          .logout-button:hover {
+            background-color: white;
+            color: black !important;
+            /* Màu nền khi hover */
+          }
+        </style>
+      </div>
+    </nav>
+
+
+
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Sản phẩm</h1>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item active">Sản phẩm</li>
+          </ol>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container mt-4">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" role="tab"
+            aria-controls="home" aria-selected="true">Danh sách</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" role="tab"
+            aria-controls="profile" aria-selected="false">Cập nhật</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="blocked-tab" data-toggle="tab" data-target="#blocked" role="tab"
+            aria-controls="blocked" aria-selected="false">Sản phẩm bị khóa</button>
+        </li>
+      </ul>
+
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="ml-auto" style="margin-top: 15px; padding-right: 15px">
+            <div class="form-group">
+              <input type="text" class="form-control" ng-model="searchKeyword" placeholder="Tìm kiếm..." />
+            </div>
+          </div>
+          <table id="example1" class="table table-bordered table-striped">
+            <style>
+              div.dataTables_wrapper div.dataTables_filter label {
+                display: none;
+              }
+
+              div.dataTables_wrapper div.dataTables_filter input {
+                display: none;
+              }
+
+              .dataTables_empty {
+                display: none;
+              }
+            </style>
+            <thead>
+              <tr>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Mô tả</th>
+                <th>Tùy chỉnh</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="product in getCurrentPageItems()" ng-if="product.active">
+                <td>{{ product.name }}</td>
+                <td style="width: 130px">{{ product.price }} VND</td>
+                <td>{{ limitDescription(product.description, 70) }}</td>
+
+                <td>
+                  <a class="fa fa-lock" ng-click="editRemove(product.id)"></a>
+                  <a class="fas fa-edit" ng-click="edit(product.id)"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="panel-footer text-center">
+            <button ng-click="setPage(1)" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-up"></i>
+            </button>
+            <button ng-click="setPage(currentPage - 1)" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-left"></i>
+            </button>
+            <button class="btn btn-success">{{currentPage }} of {{totalPages()}}</button>
+            <button ng-click="setPage(currentPage + 1)" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-right"></i>
+            </button>
+            <button ng-click="setPage(totalPages())" class="btn btn-primary">
+              <i class="fas fa-arrow-circle-down"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <form>
+            <div class="card-body">
+              <!-- Thông báo lỗi cho tên sản phẩm -->
+              <div class="form-group">
+                <label for="exampleInputEmail1">Tên sản phẩm</label>
+                <input ng-model="form.name" type="text" class="form-control" id="exampleInputEmail1"
+                  placeholder="Nhập tên sản phẩm" />
+                <div class="text-danger" ng-if="formErrors.name">
+                  {{ formErrors.name }}
+                </div>
+              </div>
+
+              <!-- Thông báo lỗi cho giá sản phẩm -->
+              <div class="form-group">
+                <label for="exampleInputEmail1">Giá</label>
+                <input ng-model="form.price" type="number" class="form-control" id="exampleInputEmail1"
+                  placeholder="Nhập giá" />
+                <div class="text-danger" ng-if="formErrors.price">
+                  {{ formErrors.price }}
+                </div>
+              </div>
+
+              <!-- select -->
+              <div class="form-group">
+                <label>Loại thuốc</label>
+                <select class="form-control" ng-model="form.category.id"
+                  ng-options="item.id as item.name for item in Categories">
+                  <option value="">Chọn loại thuốc</option>
+                </select>
+                <div class="text-danger" ng-if="formErrors.category">
+                  {{ formErrors.category }}
+                </div>
+              </div>
+
+              <!-- textarea -->
+              <div class="form-group">
+                <label>Mô tả</label>
+                <textarea class="form-control" ng-model="form.description" rows="5" placeholder="Nhập mô tả"></textarea>
+              </div>
+
+              <!-- Thông báo lỗi cho chọn ảnh -->
+              <div class="form-group">
+                <label for="exampleInputFile">Chọn ảnh</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="img" ng-model="form.image"
+                      onchange="angular.element(this).scope().uploadedFile(this.files)" />
+                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                  </div>
+                  <div class="input-group-append">
+                    <span class="input-group-text">Upload</span>
+                  </div>
+                </div>
+                <div class="text-danger" ng-if="formErrors.image">
+                  {{ formErrors.image }}
+                </div>
+              </div>
+            </div>
+            <!-- /.card-body -->
+
+
+          </form>
+          <div class="panel-footer text-center">
+            <button ng-click="create()" ng-disabled="isSubcreateing" class="btn btn-primary">
+              <i class="fas fa-plus"></i>
+              lưu
+            </button>
+            <button ng-click="update()" ng-disabled="isSubediting" class="btn btn-success">
+              <i class="fas fa-save"></i>
+              cập nhật
+            </button>
+
+            <button ng-click="reset()" ng-disabled="isSubreseting" class="btn btn-info">
+              <i class="fas fa-redo-alt"></i>
+              làm mới
+            </button>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="blocked" role="tabpanel" aria-labelledby="blocked-tab">
+          <div class="ml-auto" style="margin-top: 15px; padding-right: 15px">
+            <div class="form-group">
+              <input type="text" class="form-control" ng-model="searchBlockedKeyword"
+                placeholder="Tìm kiếm sản phẩm bị khóa..." />
+            </div>
+          </div>
+          <table id="blockedProductsTable" class="table table-bordered table-striped">
+            <style>
+              div.dataTables_wrapper div.dataTables_filter label {
+                display: none;
+              }
+
+              div.dataTables_wrapper div.dataTables_filter input {
+                display: none;
+              }
+
+              .dataTables_empty {
+                display: none;
+              }
+            </style>
+            <thead>
+              <tr>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Mô tả</th>
+                <th>Tùy chỉnh</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="product in getCurrentPageItemsBlock()">
+                <td>{{ product.name }}</td>
+                <td style="width: 130px">{{ product.price }} VND</td>
+                <td>{{ product.description }}</td>
+                <td>
+                  <a class="fa fa-unlock" ng-click="editRemove(product.id)"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div>{{mgsBlock}}</div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">DataTable with default features</h3>
+    </div>
+    <!-- /.card-header -->
+
+    <!-- /.card-body -->
+  </div>
+</aside>
+<!-- /.control-sidebar -->
+
+<!-- Main Footer -->
+</div>
+<!-- ./wrapper-->

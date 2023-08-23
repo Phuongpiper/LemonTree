@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ORIHIRO OFFICIAL STORE | ADMIN</title>
+
+    <div th:insert="~{admin/layout :: css}"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  </head>
+
+  <body
+    ng-app="myApp"
+    ng-controller="myCtrl"
+    class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed"
+  >
+    <div class="wrapper">
+      <!-- Preloader -->
+      <div
+        class="preloader flex-column justify-content-center align-items-center"
+      >
+        <img
+          class="animation__wobble"
+          th:src="@{/Admin/dist/img/AdminLTELogo.png}"
+          alt="AdminLTELogo"
+          height="60"
+          width="60"
+        />
+      </div>
+
+      <!-- Navbar -->
+      <div th:insert="~{admin/layout :: nav}"></div>
+
+      <!-- /.navbar -->
+
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="" class="brand-link">
+          <img
+            th:src="@{/Admin/dist/img/AdminLTELogo.png}"
+            alt="AdminLTE Logo"
+            class="brand-image img-circle elevation-3"
+            style="opacity: 0.8"
+          />
+          <span class="brand-text font-weight-light">OOR</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Sidebar user panel (optional) -->
+            <div th:insert="~{admin/layout :: menu}"></div>
+          <!-- SidebarSearch Form -->
+          <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+              <input
+                class="form-control form-control-sidebar"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-sidebar">
+                  <i class="fas fa-search fa-fw"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar Menu -->
+          <nav class="mt-2">
+            <ul
+              class="nav nav-pills nav-sidebar flex-column"
+              data-widget="treeview"
+              role="menu"
+              data-accordion="false"
+            >
+              <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Quản lý
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a th:href="@{/admin/index}" class="nav-link active">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sản phẩm</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a th:href="@{/admin/ManagedAccount}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Tài khoản</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a th:href="@{/admin/ManagedDiscount}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Khuyến mãi</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a th:href="@{/admin/ManagedCategories}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Loại sản phẩm</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a th:href="@{/admin/ManagedDistributors}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Nhà phân phối</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a th:href="@{/admin/ManagedBrands}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Nhãn hàng</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a th:href="@{/admin/ManagedOrders}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Đơn hàng</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                    Thống kê-Báo cáo
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a th:href="@{/admin/ReportRevenue}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Doanh thu</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a th:href="@{/admin/ReportProduct}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sản phẩm</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      th:href="@{/admin/ReportFavoriteProducts}"
+                      class="nav-link"
+                    >
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sản phẩm theo yêu thích</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0">Sản phẩm</h1>
+              </div>
+              <!-- /.col -->
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item">
+                    <a href="index.html">Quản lý</a>
+                  </li>
+                  <li class="breadcrumb-item active">Sản phẩm</li>
+                </ol>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <!-- left column -->
+              <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">Thêm sản phẩm</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <!-- form start -->
+                  <form>
+                    <div class="card-body">
+                      <!-- Thông báo lỗi cho tên sản phẩm -->
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Tên sản phẩm</label>
+                        <input
+                          ng-model="form.name"
+                          type="text"
+                          class="form-control"
+                          id="exampleInputEmail1"
+                          placeholder="Nhập tên sản phẩm"
+                        />
+                        <div class="text-danger" ng-if="formErrors.name">
+                          {{ formErrors.name }}
+                        </div>
+                      </div>
+
+                      <!-- Thông báo lỗi cho giá sản phẩm -->
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Giá</label>
+                        <input
+                          ng-model="form.price"
+                          type="number"
+                          class="form-control"
+                          id="exampleInputEmail1"
+                          placeholder="Nhập giá"
+                        />
+                        <div class="text-danger" ng-if="formErrors.price">
+                          {{ formErrors.price }}
+                        </div>
+                      </div>
+
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Loại thuốc</label>
+                        <select
+                          class="form-control"
+                          ng-model="form.category.id"
+                          ng-options="item.id as item.name for item in Categories"
+                        >
+                          <option value="">Chọn loại thuốc</option>
+                        </select>
+                        <div class="text-danger" ng-if="formErrors.category">
+                          {{ formErrors.category }}
+                        </div>
+                      </div>
+
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Mô tả</label>
+                        <textarea
+                          class="form-control"
+                          ng-model="form.description"
+                          rows="3"
+                          placeholder="Enter ..."
+                        ></textarea>
+                      </div>
+
+                      <!-- Thông báo lỗi cho chọn ảnh -->
+                      <div class="form-group">
+                        <label for="exampleInputFile">Chọn ảnh</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input
+                              type="file"
+                              class="custom-file-input"
+                              id="img"
+                              ng-model="form.image"
+                              onchange="angular.element(this).scope().uploadedFile(this.files)"
+                            />
+                            <label
+                              class="custom-file-label"
+                              for="exampleInputFile"
+                              >Choose file</label
+                            >
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                          </div>
+                        </div>
+                        <div class="text-danger" ng-if="formErrors.image">
+                          {{ formErrors.image }}
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                      <button
+                        type="submit"
+                        ng-click="create()"
+                        class="btn btn-primary"
+                        ng-disabled="isSubmitting"
+                      >
+                        Submit
+                      </button>
+                      <button
+                        type="submit"
+                        ng-click="update()"
+                        class="btn btn-primary"
+                        ng-disabled="isSubediting"
+                      >
+                        Update
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">DataTable with default features</h3>
+          </div>
+          <!-- /.card-header -->
+
+          <!-- /.card-body -->
+        </div>
+      </aside>
+      <!-- /.control-sidebar -->
+
+      <!-- Main Footer -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+    <div th:insert="~{admin/layout :: js}"></div>
+
+    <script>
+      $(function () {
+        $("#example1")
+          .DataTable({
+            responsive: true,
+            lengthChange: false,
+            autoWidth: false,
+            buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+          })
+          .buttons()
+          .container()
+          .appendTo("#example1_wrapper .col-md-6:eq(0)");
+      });
+    </script>
+    <script th:src="@{/Admin/plugins/AngularJS/product-ctrl.js}"></script>
+  </body>
+</html>

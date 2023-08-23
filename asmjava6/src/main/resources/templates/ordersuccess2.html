@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="../scss/OderSuccess.css" rel="stylesheet">
+<title>Thanh toán thành công</title>
+</head>
+
+<body>
+	<div class="container mt-4 mb-4">
+		<div class="row d-flex cart align-items-center justify-content-center">
+			<div class="col-md-10">
+				<div class="card">
+					<div class="d-flex justify-content-center border-bottom">
+						<div class="p-3">
+							<div class="progresses">
+								<div class="steps">
+									<span><i class="fa fa-check"></i></span>
+								</div>
+								<span class="line"></span>
+								<div class="steps">
+									<span><i class="fa fa-check"></i></span>
+								</div>
+								<span class="line"></span>
+								<div class="steps">
+									<span class="font-weight-bold">3</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row g-0">
+						<div class="col-md-12 border-right p-5">
+							<div class="text-center order-details">
+								<div
+									class="d-flex justify-content-center mb-5 flex-column align-items-center">
+									<span class="check1"><i class="fa fa-check"></i></span> <span
+										class="font-weight-bold">Thanh Toán Thành Công</span> <small
+										class="mt-2"> Hẹn Gặp Lại</small> <a href="#"
+										class="text-decoration-none invoice-link">View Invoice</a>
+								</div>
+								<a th:href="@{/client/index}" class="btn btn-danger btn-block order-button" >Quay
+									Lại Trang Chủ</a>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
